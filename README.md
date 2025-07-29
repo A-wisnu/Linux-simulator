@@ -1,8 +1,8 @@
-# Linux Desktop Clone
+# Linux Desktop Clone - Advanced Edition
 
 **Created by Wisnu Hidayat**
 
-A fully functional Linux desktop environment simulation running entirely in your web browser. This project recreates the complete Linux desktop experience with modern web technologies.
+A comprehensive and highly realistic Linux desktop environment simulation running entirely in your web browser. This advanced project recreates the complete Linux desktop experience with authentic system functionality, advanced terminal commands, and professional-grade applications.
 
 ## ✨ Features
 
@@ -19,12 +19,16 @@ A fully functional Linux desktop environment simulation running entirely in your
 - **Address Bar**: Direct path navigation and breadcrumbs
 - **Toolbar**: Back, forward, up, and refresh functionality
 
-### 💻 Terminal Emulator
-- **Command Line Interface**: Fully functional terminal with command history
-- **Linux Commands**: Support for common commands (ls, pwd, cd, mkdir, touch, cat, etc.)
-- **Command History**: Arrow key navigation through previous commands
-- **System Information**: neofetch command for system details
-- **Auto-completion**: Tab completion for enhanced usability
+### 💻 Advanced Terminal Emulator
+- **Complete Command Line Interface**: Fully functional terminal with extensive Linux command support
+- **60+ Linux Commands**: ls, pwd, cd, mkdir, touch, cat, grep, find, ps, top, df, free, uname, env, chmod, chown, cp, mv, rm, python3, node, git, apt, systemctl, journalctl, ifconfig, ping, wget, curl, tar, kill, su, sudo, man, and many more
+- **Command History & Aliases**: Arrow key navigation, command aliases (ll, la, etc.)
+- **System Information**: Comprehensive system details with neofetch, lscpu, lsblk, mount, uptime
+- **Process Management**: ps, top, kill commands with realistic process simulation
+- **Network Tools**: ping, ifconfig, ip commands with network simulation
+- **Package Management**: Full apt/apt-get simulation with install/remove functionality
+- **System Control**: systemctl, journalctl for service and log management
+- **File Operations**: Complete file system operations with permissions
 
 ### 🪟 Window Management
 - **Multi-window Support**: Open multiple applications simultaneously
@@ -34,16 +38,38 @@ A fully functional Linux desktop environment simulation running entirely in your
 - **Focus Management**: Click to focus and bring windows to front
 - **Resizable**: Windows can be maximized to fullscreen
 
-### 🎯 Applications
+### 🎯 Professional Applications
 
-#### 📝 Text Editor
+#### 📝 Advanced Text Editor
 - **Rich Text Editing**: Full-featured text editor with formatting options
 - **File Operations**: New, open, and save functionality
 - **Syntax Highlighting**: Simulated code highlighting
 - **Auto-save**: Automatic content preservation
 
-#### 🧮 Calculator
-- **Scientific Calculator**: Complete mathematical operations
+#### 💻 Professional Code Editor
+- **IDE-like Interface**: Complete development environment with file explorer
+- **Multi-language Support**: JavaScript, Python, HTML, CSS, JSON syntax highlighting
+- **Project Management**: File tree navigation and project organization
+- **Integrated Terminal**: Built-in terminal access
+- **Debug Support**: Debugging tools and run functionality
+- **Status Bar**: Line/column indicators and language detection
+
+#### 📊 System Monitor
+- **Real-time Monitoring**: Live CPU, memory, and network usage statistics
+- **Process Management**: Detailed process list with PID, CPU%, memory usage
+- **System Resources**: Visual representation of system performance
+- **Process Control**: End process functionality
+- **Resource Graphs**: Performance visualization
+
+#### 📦 Software Center (Package Manager)
+- **GUI Package Management**: Graphical interface for software installation
+- **Package Search**: Search and browse available software packages
+- **Installation Management**: Install, remove, and update packages
+- **Package Information**: Detailed package descriptions and dependencies
+- **Update Management**: System-wide package updates
+
+#### 🧮 Scientific Calculator
+- **Advanced Calculator**: Complete mathematical operations
 - **Memory Functions**: Clear, clear entry, and backspace
 - **Decimal Support**: Full floating-point arithmetic
 - **Keyboard Support**: Responsive button interface
@@ -54,14 +80,20 @@ A fully functional Linux desktop environment simulation running entirely in your
 - **About Information**: System details and creator information
 - **Settings Persistence**: Save and apply configuration changes
 
-### 🎛️ System Features
+### 🎛️ Advanced System Features
 - **Live Clock**: Real-time clock with date display
-- **System Tray**: Network, volume, and battery indicators
-- **Start Menu**: Application launcher with user information
-- **Notifications**: System-wide notification support
+- **System Tray**: Network, volume, and battery indicators with status
+- **Start Menu**: Application launcher with user information and power options
+- **Notifications**: System-wide notification support with auto-dismiss
 - **Context Menus**: Right-click functionality throughout the system
-- **Power Options**: Shutdown, restart, and sleep functionality
+- **Power Options**: Shutdown, restart, and sleep functionality with animations
 - **Keyboard Shortcuts**: System-wide hotkey support
+- **Virtual File System**: Complete Linux-like directory structure with permissions
+- **User Management**: Multi-user support with permissions and groups
+- **System Logs**: journalctl integration with system log viewing
+- **Environment Variables**: Full environment variable system
+- **Process Simulation**: Realistic process management and monitoring
+- **Network Simulation**: Network interface and connectivity simulation
 
 ## 🚀 Getting Started
 
