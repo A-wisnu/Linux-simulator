@@ -16,7 +16,7 @@ class LinuxDesktop {
         this.showWelcomeScreen();
         this.setupEventListeners();
         this.updateClock();
-        this.setInterval(() => this.updateClock(), 1000);
+        setInterval(() => this.updateClock(), 1000);
     }
 
     showWelcomeScreen() {
@@ -1288,22 +1288,22 @@ Calculating upgrade... Done
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.`;
             
             case 'install':
-                const package = args[1] || 'package';
+                const packageName = args[1] || 'package';
                 return `Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
 The following NEW packages will be installed:
-  ${package}
+  ${packageName}
 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
 Need to get 1,234 kB of archives.
 After this operation, 5,678 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 ${package} amd64 1.0.0 [1,234 kB]
+Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 ${packageName} amd64 1.0.0 [1,234 kB]
 Fetched 1,234 kB in 1s (1,234 kB/s)
-Selecting previously unselected package ${package}.
+Selecting previously unselected package ${packageName}.
 (Reading database ... 185432 files and directories currently installed.)
-Preparing to unpack .../${package}_1.0.0_amd64.deb ...
-Unpacking ${package} (1.0.0) ...
-Setting up ${package} (1.0.0) ...
+Preparing to unpack .../${packageName}_1.0.0_amd64.deb ...
+Unpacking ${packageName} (1.0.0) ...
+Setting up ${packageName} (1.0.0) ...
 Processing triggers for man-db (2.9.1-1) ...`;
             
             case 'search':
