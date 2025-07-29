@@ -16,15 +16,55 @@ class LinuxDesktop {
         this.showWelcomeScreen();
         this.setupEventListeners();
         this.updateClock();
-        this.setInterval(() => this.updateClock(), 1000);
+        setInterval(() => this.updateClock(), 1000);
     }
 
     showWelcomeScreen() {
-        setTimeout(() => {
-            document.getElementById('welcome-screen').classList.add('hidden');
-            document.getElementById('desktop').classList.remove('hidden');
-            this.showNotification('Welcome!', 'Linux Desktop Clone loaded successfully');
-        }, 4000);
+        console.log('Welcome screen initialized');
+        
+        // Ensure elements exist
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const desktop = document.getElementById('desktop');
+        
+        if (!welcomeScreen || !desktop) {
+            console.error('Welcome screen or desktop element not found');
+            this.goToDesktop(); // Fallback
+            return;
+        }
+        
+        // Set up skip function
+        window.skipWelcome = () => this.goToDesktop();
+        
+        // Auto transition after 3 seconds
+        this.welcomeTimeout = setTimeout(() => {
+            this.goToDesktop();
+        }, 3000);
+    }
+
+    goToDesktop() {
+        console.log('Transitioning to desktop');
+        
+        // Clear timeout if it exists
+        if (this.welcomeTimeout) {
+            clearTimeout(this.welcomeTimeout);
+            this.welcomeTimeout = null;
+        }
+        
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const desktop = document.getElementById('desktop');
+        
+        if (welcomeScreen && desktop) {
+            welcomeScreen.classList.add('hidden');
+            desktop.classList.remove('hidden');
+            
+            // Add a small delay before showing notification to ensure desktop is loaded
+            setTimeout(() => {
+                this.showNotification('Welcome!', 'Linux Desktop Clone loaded successfully');
+            }, 500);
+        }
+        
+        // Clean up skip function
+        delete window.skipWelcome;
     }
 
     setupEventListeners() {
@@ -2028,18 +2068,63 @@ Enjoy writing!"></textarea>
 
 // Initialize the desktop when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    window.desktop = new LinuxDesktop();
+    console.log('DOM Content Loaded - Initializing Linux Desktop Clone');
     
-    // Global calculator reference for button clicks
-    window.calculator = {
-        number: (digit) => window.desktop.currentCalculator?.number(digit),
-        operation: (op) => window.desktop.currentCalculator?.operation(op),
-        equals: () => window.desktop.currentCalculator?.equals(),
-        clear: () => window.desktop.currentCalculator?.clear(),
-        clearEntry: () => window.desktop.currentCalculator?.clearEntry(),
-        backspace: () => window.desktop.currentCalculator?.backspace(),
-        decimal: () => window.desktop.currentCalculator?.decimal()
-    };
+    try {
+        window.desktop = new LinuxDesktop();
+        console.log('Linux Desktop initialized successfully');
+        
+        // Global calculator reference for button clicks
+        window.calculator = {
+            number: (digit) => window.desktop.currentCalculator?.number(digit),
+            operation: (op) => window.desktop.currentCalculator?.operation(op),
+            equals: () => window.desktop.currentCalculator?.equals(),
+            clear: () => window.desktop.currentCalculator?.clear(),
+            clearEntry: () => window.desktop.currentCalculator?.clearEntry(),
+            backspace: () => window.desktop.currentCalculator?.backspace(),
+            decimal: () => window.desktop.currentCalculator?.decimal()
+        };
+    } catch (error) {
+        console.error('Error initializing Linux Desktop:', error);
+        
+        // Fallback: hide welcome screen and show desktop anyway
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const desktop = document.getElementById('desktop');
+        
+        if (welcomeScreen && desktop) {
+            welcomeScreen.classList.add('hidden');
+            desktop.classList.remove('hidden');
+        }
+        
+        // Show error notification if possible
+        if (window.desktop && window.desktop.showNotification) {
+            window.desktop.showNotification('Error', 'Desktop initialization error', 'error');
+        }
+    }
+});
+
+// Fallback initialization in case DOMContentLoaded doesn't fire
+window.addEventListener('load', () => {
+    console.log('Window load event - checking if desktop is initialized');
+    
+    if (!window.desktop) {
+        console.log('Desktop not initialized, attempting fallback initialization');
+        
+        try {
+            window.desktop = new LinuxDesktop();
+        } catch (error) {
+            console.error('Fallback initialization failed:', error);
+            
+            // Force show desktop
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const desktop = document.getElementById('desktop');
+            
+            if (welcomeScreen && desktop) {
+                welcomeScreen.classList.add('hidden');
+                desktop.classList.remove('hidden');
+            }
+        }
+    }
 });
 
 // Prevent default browser shortcuts that might interfere

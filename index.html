@@ -23,6 +23,9 @@
                 <div class="loading-progress"></div>
             </div>
             <p class="loading-text">Loading desktop environment...</p>
+            <button class="skip-button" onclick="window.skipWelcome && window.skipWelcome()">
+                <i class="fas fa-forward"></i> Skip
+            </button>
         </div>
     </div>
 
@@ -177,5 +180,20 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Emergency fallback if main script fails or takes too long
+        setTimeout(() => {
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const desktop = document.getElementById('desktop');
+            
+            if (welcomeScreen && !welcomeScreen.classList.contains('hidden')) {
+                console.log('Emergency fallback: Forcing desktop display');
+                welcomeScreen.classList.add('hidden');
+                if (desktop) {
+                    desktop.classList.remove('hidden');
+                }
+            }
+        }, 6000); // Emergency fallback after 6 seconds
+    </script>
 </body>
 </html>
