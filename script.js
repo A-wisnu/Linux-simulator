@@ -109,26 +109,96 @@ class LinuxDesktop {
                                 type: 'folder',
                                 children: {
                                     'Documents': { type: 'folder', children: {
-                                        'readme.txt': { type: 'file', content: 'Welcome to Linux Desktop Clone!\nCreated by Wisnu Hidayat\n\nThis is a fully functional Linux desktop environment simulation.' },
-                                        'projects': { type: 'folder', children: {} }
+                                        'readme.txt': { type: 'file', content: 'Welcome to Linux Desktop Clone!\nCreated by Wisnu Hidayat\n\nThis is a fully functional Linux desktop environment simulation.\nFeatures:\n- Complete terminal emulation\n- File management\n- System monitoring\n- Package management simulation' },
+                                        'projects': { type: 'folder', children: {
+                                            'web-dev': { type: 'folder', children: {
+                                                'index.html': { type: 'file', content: '<!DOCTYPE html>\n<html>\n<head><title>Hello World</title></head>\n<body><h1>Hello Linux!</h1></body>\n</html>' }
+                                            }}
+                                        }},
+                                        'notes.txt': { type: 'file', content: 'Linux Commands Notes:\n- ls: list files\n- grep: search text\n- find: locate files\n- ps: show processes' }
                                     }},
-                                    'Downloads': { type: 'folder', children: {} },
+                                    'Downloads': { type: 'folder', children: {
+                                        'linux-tutorial.pdf': { type: 'file', content: 'Linux Tutorial PDF Content' }
+                                    }},
                                     'Pictures': { type: 'folder', children: {
-                                        'wallpaper.jpg': { type: 'file', content: 'Image file' }
+                                        'wallpaper.jpg': { type: 'file', content: 'Beautiful Linux wallpaper' },
+                                        'screenshots': { type: 'folder', children: {} }
                                     }},
-                                    'Music': { type: 'folder', children: {} },
+                                    'Music': { type: 'folder', children: {
+                                        'favorites': { type: 'folder', children: {} }
+                                    }},
                                     'Videos': { type: 'folder', children: {} },
-                                    'Desktop': { type: 'folder', children: {} }
+                                    'Desktop': { type: 'folder', children: {} },
+                                    '.bashrc': { type: 'file', content: '# ~/.bashrc\n\nexport PATH=$PATH:/usr/local/bin\nalias ll="ls -la"\nalias la="ls -la"\nalias l="ls -l"\n\n# Custom prompt\nPS1="\\u@\\h:\\w\\$ "' },
+                                    '.profile': { type: 'file', content: '# ~/.profile\n\nif [ "$BASH" ]; then\n    if [ -f ~/.bashrc ]; then\n        . ~/.bashrc\n    fi\nfi' }
                                 }
                             }
                         }
                     },
-                    'usr': { type: 'folder', children: {
-                        'bin': { type: 'folder', children: {} },
-                        'lib': { type: 'folder', children: {} }
+                    'bin': { type: 'folder', children: {
+                        'bash': { type: 'file', content: 'bash shell executable' },
+                        'ls': { type: 'file', content: 'ls command executable' },
+                        'cat': { type: 'file', content: 'cat command executable' },
+                        'grep': { type: 'file', content: 'grep command executable' },
+                        'ps': { type: 'file', content: 'ps command executable' }
                     }},
-                    'etc': { type: 'folder', children: {} },
-                    'var': { type: 'folder', children: {} }
+                    'usr': { type: 'folder', children: {
+                        'bin': { type: 'folder', children: {
+                            'find': { type: 'file', content: 'find command executable' },
+                            'top': { type: 'file', content: 'top command executable' },
+                            'vim': { type: 'file', content: 'vim editor executable' },
+                            'nano': { type: 'file', content: 'nano editor executable' }
+                        }},
+                        'lib': { type: 'folder', children: {
+                            'systemd': { type: 'folder', children: {} },
+                            'x86_64-linux-gnu': { type: 'folder', children: {} }
+                        }},
+                        'share': { type: 'folder', children: {
+                            'doc': { type: 'folder', children: {} },
+                            'man': { type: 'folder', children: {
+                                'man1': { type: 'folder', children: {} }
+                            }}
+                        }},
+                        'local': { type: 'folder', children: {
+                            'bin': { type: 'folder', children: {} },
+                            'lib': { type: 'folder', children: {} }
+                        }}
+                    }},
+                    'etc': { type: 'folder', children: {
+                        'passwd': { type: 'file', content: 'root:x:0:0:root:/root:/bin/bash\nwisnu:x:1000:1000:Wisnu Hidayat:/home/wisnu:/bin/bash' },
+                        'hosts': { type: 'file', content: '127.0.0.1\tlocalhost\n127.0.1.1\tlinux-clone' },
+                        'fstab': { type: 'file', content: '# /etc/fstab: static file system information\n/dev/sda1 / ext4 defaults 0 1' },
+                        'os-release': { type: 'file', content: 'NAME="Linux Desktop Clone"\nVERSION="1.0"\nID=linux-clone\nVERSION_ID="1.0"\nPRETTY_NAME="Linux Desktop Clone 1.0"' }
+                    }},
+                    'var': { type: 'folder', children: {
+                        'log': { type: 'folder', children: {
+                            'syslog': { type: 'file', content: 'System log entries...' },
+                            'auth.log': { type: 'file', content: 'Authentication log entries...' }
+                        }},
+                        'lib': { type: 'folder', children: {} },
+                        'tmp': { type: 'folder', children: {} }
+                    }},
+                    'tmp': { type: 'folder', children: {} },
+                    'opt': { type: 'folder', children: {} },
+                    'root': { type: 'folder', children: {
+                        '.bashrc': { type: 'file', content: '# ~/.bashrc for root\n\nexport PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' }
+                    }},
+                    'proc': { type: 'folder', children: {
+                        'cpuinfo': { type: 'file', content: 'processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 142\nmodel name\t: Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz' },
+                        'meminfo': { type: 'file', content: 'MemTotal:        8388608 kB\nMemFree:         4194304 kB\nMemAvailable:    6291456 kB' }
+                    }},
+                    'sys': { type: 'folder', children: {
+                        'class': { type: 'folder', children: {} },
+                        'devices': { type: 'folder', children: {} }
+                    }},
+                    'dev': { type: 'folder', children: {
+                        'null': { type: 'file', content: 'null device' },
+                        'zero': { type: 'file', content: 'zero device' }
+                    }},
+                    'boot': { type: 'folder', children: {} },
+                    'lib': { type: 'folder', children: {} },
+                    'lib64': { type: 'folder', children: {} },
+                    'sbin': { type: 'folder', children: {} }
                 }
             }
         };
@@ -152,6 +222,9 @@ class LinuxDesktop {
                 break;
             case 'settings':
                 this.createSettingsWindow(windowId);
+                break;
+            case 'system-monitor':
+                this.createSystemMonitorWindow(windowId);
                 break;
         }
     }
@@ -219,6 +292,7 @@ class LinuxDesktop {
         let isDragging = false;
         let startX, startY, startLeft, startTop;
 
+        // Mouse events
         header.addEventListener('mousedown', (e) => {
             if (e.target.closest('.window-controls')) return;
             
@@ -231,6 +305,21 @@ class LinuxDesktop {
             this.focusWindow(window.id);
         });
 
+        // Touch events for mobile
+        header.addEventListener('touchstart', (e) => {
+            if (e.target.closest('.window-controls')) return;
+            
+            const touch = e.touches[0];
+            isDragging = true;
+            startX = touch.clientX;
+            startY = touch.clientY;
+            startLeft = parseInt(window.style.left);
+            startTop = parseInt(window.style.top);
+            
+            this.focusWindow(window.id);
+            e.preventDefault();
+        }, { passive: false });
+
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
             
@@ -241,7 +330,23 @@ class LinuxDesktop {
             window.style.top = Math.max(0, Math.min(newTop, innerHeight - window.offsetHeight - 48)) + 'px';
         });
 
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            const touch = e.touches[0];
+            const newLeft = startLeft + (touch.clientX - startX);
+            const newTop = startTop + (touch.clientY - startY);
+            
+            window.style.left = Math.max(0, Math.min(newLeft, innerWidth - window.offsetWidth)) + 'px';
+            window.style.top = Math.max(0, Math.min(newTop, innerHeight - window.offsetHeight - 48)) + 'px';
+            e.preventDefault();
+        }, { passive: false });
+
         document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        document.addEventListener('touchend', () => {
             isDragging = false;
         });
     }
@@ -257,6 +362,12 @@ class LinuxDesktop {
     closeWindow(windowId) {
         const windowData = this.windows.get(windowId);
         if (windowData) {
+            // Clear any intervals for system monitor
+            const interval = windowData.element.dataset.updateInterval;
+            if (interval) {
+                clearInterval(interval);
+            }
+            
             windowData.element.remove();
             this.windows.delete(windowId);
             this.removeFromTaskbar(windowId);
@@ -554,7 +665,7 @@ wisnu@linux-clone:~$ </div>
 
         switch(cmd) {
             case 'ls':
-                output.textContent += this.listDirectory() + '\n';
+                output.textContent += this.listDirectory(args) + '\n';
                 break;
             case 'pwd':
                 output.textContent += this.currentPath + '\n';
@@ -580,10 +691,125 @@ wisnu@linux-clone:~$ </div>
                 break;
             case 'cat':
                 if (args.length > 0) {
-                    output.textContent += `Contents of ${args[0]}:\nThis is a simulated file content.\n`;
+                    output.textContent += this.catFile(args[0]) + '\n';
                 } else {
                     output.textContent += 'cat: missing operand\n';
                 }
+                break;
+            case 'grep':
+                if (args.length >= 2) {
+                    output.textContent += this.grepCommand(args[0], args[1]) + '\n';
+                } else {
+                    output.textContent += 'grep: usage: grep pattern file\n';
+                }
+                break;
+            case 'find':
+                if (args.length > 0) {
+                    output.textContent += this.findCommand(args) + '\n';
+                } else {
+                    output.textContent += this.findCommand(['.']) + '\n';
+                }
+                break;
+            case 'ps':
+                output.textContent += this.psCommand(args) + '\n';
+                break;
+            case 'top':
+                output.textContent += this.topCommand() + '\n';
+                break;
+            case 'history':
+                output.textContent += this.historyCommand() + '\n';
+                break;
+            case 'man':
+                if (args.length > 0) {
+                    output.textContent += this.manCommand(args[0]) + '\n';
+                } else {
+                    output.textContent += 'man: What manual page do you want?\n';
+                }
+                break;
+            case 'uname':
+                output.textContent += this.unameCommand(args) + '\n';
+                break;
+            case 'df':
+                output.textContent += this.dfCommand() + '\n';
+                break;
+            case 'free':
+                output.textContent += this.freeCommand() + '\n';
+                break;
+            case 'uptime':
+                output.textContent += this.uptimeCommand() + '\n';
+                break;
+            case 'which':
+                if (args.length > 0) {
+                    output.textContent += this.whichCommand(args[0]) + '\n';
+                } else {
+                    output.textContent += 'which: missing operand\n';
+                }
+                break;
+            case 'echo':
+                output.textContent += args.join(' ') + '\n';
+                break;
+            case 'ping':
+                if (args.length > 0) {
+                    output.textContent += this.pingCommand(args[0]) + '\n';
+                } else {
+                    output.textContent += 'ping: usage: ping destination\n';
+                }
+                break;
+            case 'wget':
+                if (args.length > 0) {
+                    output.textContent += this.wgetCommand(args[0]) + '\n';
+                } else {
+                    output.textContent += 'wget: missing URL\n';
+                }
+                break;
+            case 'curl':
+                if (args.length > 0) {
+                    output.textContent += this.curlCommand(args[0]) + '\n';
+                } else {
+                    output.textContent += 'curl: try \'curl --help\' for more information\n';
+                }
+                break;
+            case 'apt':
+            case 'apt-get':
+                output.textContent += this.aptCommand(args) + '\n';
+                break;
+            case 'sudo':
+                if (args.length > 0) {
+                    output.textContent += this.sudoCommand(args) + '\n';
+                } else {
+                    output.textContent += 'sudo: a command is required\n';
+                }
+                break;
+            case 'htop':
+                output.textContent += this.htopCommand() + '\n';
+                break;
+            case 'nano':
+            case 'vim':
+                if (args.length > 0) {
+                    output.textContent += this.editorCommand(cmd, args[0]) + '\n';
+                } else {
+                    output.textContent += `${cmd}: filename required\n`;
+                }
+                break;
+            case 'chmod':
+                if (args.length >= 2) {
+                    output.textContent += this.chmodCommand(args[0], args[1]) + '\n';
+                } else {
+                    output.textContent += 'chmod: usage: chmod mode file\n';
+                }
+                break;
+            case 'chown':
+                if (args.length >= 2) {
+                    output.textContent += this.chownCommand(args[0], args[1]) + '\n';
+                } else {
+                    output.textContent += 'chown: usage: chown owner file\n';
+                }
+                break;
+            case 'id':
+                output.textContent += this.idCommand() + '\n';
+                break;
+            case 'hostname':
+                output.textContent += 'linux-clone\n';
                 break;
             case 'whoami':
                 output.textContent += 'wisnu\n';
@@ -642,17 +868,63 @@ wisnu@linux-clone:~$ </div>
 
     getHelpText() {
         return `Available commands:
-ls       - List directory contents
-pwd      - Print working directory
-cd       - Change directory
-mkdir    - Create directory
-touch    - Create file
-cat      - Display file contents
-whoami   - Display current user
-date     - Display current date and time
-clear    - Clear terminal
-help     - Show this help message
-neofetch - Display system information`;
+
+File & Directory Operations:
+  ls [-l|-la]     - List directory contents
+  pwd             - Print working directory
+  cd              - Change directory
+  mkdir           - Create directory
+  touch           - Create file
+  cat             - Display file contents
+  find            - Search for files and directories
+  chmod           - Change file permissions
+  chown           - Change file ownership
+
+Text Processing:
+  grep            - Search for patterns in files
+  echo            - Display text
+  nano/vim        - Text editors
+
+System Information:
+  ps [aux]        - Display running processes
+  top             - Display system processes (real-time)
+  htop            - Enhanced system monitor
+  uname [-a]      - System information
+  df              - Display filesystem disk space usage
+  free            - Display memory usage
+  uptime          - Show system uptime
+  whoami          - Display current user
+  id              - Display user and group IDs
+  hostname        - Display system hostname
+  date            - Display current date and time
+  history         - Show command history
+
+Network Tools:
+  ping            - Send ICMP echo requests
+  wget            - Download files from web
+  curl            - Transfer data from servers
+
+Package Management:
+  apt [action]    - Package manager
+  sudo            - Execute commands as another user
+
+System Tools:
+  which           - Locate a command
+  man             - Display manual pages
+  clear           - Clear terminal
+  help            - Show this help message
+  neofetch        - Display detailed system information
+
+Examples:
+  ls -la                     List all files in detailed format
+  grep "Linux" readme.txt    Search for "Linux" in readme.txt
+  find /home -name "*.txt"   Find all .txt files in /home
+  apt install vim            Install vim package
+  sudo apt update            Update package lists
+  ping google.com            Test network connectivity
+  man ls                     Show manual for ls command
+  ps aux                     Show all running processes
+  chmod 755 script.sh        Make script executable`;
     }
 
     getNeofetch() {
@@ -673,6 +945,438 @@ neofetch - Display system information`;
         \`Y$$b.                
            \`"Y$b._            
                \`"""`;
+    }
+
+    // Enhanced terminal commands for Linux-like experience
+    listDirectory(args) {
+        const pathParts = this.currentPath.split('/').filter(part => part);
+        let currentDir = this.fileSystem['/'];
+        
+        for (const part of pathParts) {
+            if (currentDir.children && currentDir.children[part]) {
+                currentDir = currentDir.children[part];
+            }
+        }
+
+        if (currentDir.children) {
+            const items = Object.entries(currentDir.children);
+            if (args.includes('-l')) {
+                // Long format listing
+                let result = 'total ' + items.length + '\n';
+                items.forEach(([name, item]) => {
+                    const permissions = item.type === 'folder' ? 'drwxr-xr-x' : '-rw-r--r--';
+                    const size = item.type === 'folder' ? '4096' : (item.content ? item.content.length : '0');
+                    const date = new Date().toLocaleDateString();
+                    result += `${permissions} 1 wisnu wisnu ${size.padStart(8)} ${date} ${name}\n`;
+                });
+                return result;
+            } else if (args.includes('-la') || args.includes('-al')) {
+                // Long format with hidden files
+                let result = 'total ' + (items.length + 2) + '\n';
+                result += 'drwxr-xr-x 1 wisnu wisnu     4096 ' + new Date().toLocaleDateString() + ' .\n';
+                result += 'drwxr-xr-x 1 wisnu wisnu     4096 ' + new Date().toLocaleDateString() + ' ..\n';
+                items.forEach(([name, item]) => {
+                    const permissions = item.type === 'folder' ? 'drwxr-xr-x' : '-rw-r--r--';
+                    const size = item.type === 'folder' ? '4096' : (item.content ? item.content.length : '0');
+                    const date = new Date().toLocaleDateString();
+                    result += `${permissions} 1 wisnu wisnu ${size.padStart(8)} ${date} ${name}\n`;
+                });
+                return result;
+            } else {
+                return Object.keys(currentDir.children).join('  ');
+            }
+        }
+        return '';
+    }
+
+    catFile(filename) {
+        const pathParts = this.currentPath.split('/').filter(part => part);
+        let currentDir = this.fileSystem['/'];
+        
+        for (const part of pathParts) {
+            if (currentDir.children && currentDir.children[part]) {
+                currentDir = currentDir.children[part];
+            }
+        }
+
+        if (currentDir.children && currentDir.children[filename]) {
+            const file = currentDir.children[filename];
+            if (file.type === 'file') {
+                return file.content || 'This is a simulated file content.';
+            } else {
+                return `cat: ${filename}: Is a directory`;
+            }
+        }
+        return `cat: ${filename}: No such file or directory`;
+    }
+
+    grepCommand(pattern, filename) {
+        const content = this.catFile(filename);
+        if (content.includes('No such file') || content.includes('Is a directory')) {
+            return content;
+        }
+        
+        const lines = content.split('\n');
+        const matches = lines.filter(line => line.includes(pattern));
+        return matches.length > 0 ? matches.join('\n') : '';
+    }
+
+    findCommand(args) {
+        const searchPath = args[0] || '.';
+        const results = [];
+        
+        const searchInDir = (dir, path) => {
+            if (dir.children) {
+                Object.entries(dir.children).forEach(([name, item]) => {
+                    const fullPath = path === '/' ? `/${name}` : `${path}/${name}`;
+                    results.push(fullPath);
+                    if (item.type === 'folder') {
+                        searchInDir(item, fullPath);
+                    }
+                });
+            }
+        };
+
+        if (searchPath === '.') {
+            results.push('.');
+            const pathParts = this.currentPath.split('/').filter(part => part);
+            let currentDir = this.fileSystem['/'];
+            
+            for (const part of pathParts) {
+                if (currentDir.children && currentDir.children[part]) {
+                    currentDir = currentDir.children[part];
+                }
+            }
+            searchInDir(currentDir, '.');
+        } else {
+            searchInDir(this.fileSystem['/'], '');
+        }
+
+        return results.join('\n');
+    }
+
+    psCommand(args) {
+        const processes = [
+            '    PID TTY          TIME CMD',
+            '   1234 pts/0    00:00:01 bash',
+            '   1235 pts/0    00:00:00 terminal',
+            '   1236 pts/0    00:00:00 file-manager',
+            '   1237 pts/0    00:00:00 text-editor',
+            '   1238 pts/0    00:00:00 ps'
+        ];
+        
+        if (args.includes('aux') || args.includes('-aux')) {
+            return `USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+wisnu     1234  0.1  0.5  21256  4312 pts/0    Ss   10:30   0:01 bash
+wisnu     1235  0.0  0.2  12456  2048 pts/0    S    10:31   0:00 terminal
+wisnu     1236  0.0  0.3  15632  3072 pts/0    S    10:32   0:00 file-manager
+wisnu     1237  0.0  0.2  11248  1984 pts/0    S    10:33   0:00 text-editor
+wisnu     1238  0.0  0.1   8392  1024 pts/0    R+   10:34   0:00 ps aux`;
+        }
+        
+        return processes.join('\n');
+    }
+
+    topCommand() {
+        return `top - ${new Date().toLocaleTimeString()} up ${Math.floor(performance.now() / 60000)} min,  1 user,  load average: 0.15, 0.10, 0.05
+Tasks:   5 total,   1 running,   4 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.3 us,  1.0 sy,  0.0 ni, 96.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   8192.0 total,   4096.0 free,   2048.0 used,   2048.0 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6144.0 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   1234 wisnu     20   0   21256   4312   3072 S   0.3   0.1   0:01.23 bash
+   1235 wisnu     20   0   12456   2048   1536 S   0.0   0.0   0:00.45 terminal
+   1236 wisnu     20   0   15632   3072   2304 S   0.0   0.0   0:00.12 file-manager
+   1237 wisnu     20   0   11248   1984   1472 S   0.0   0.0   0:00.08 text-editor`;
+    }
+
+    historyCommand() {
+        // This would require storing command history
+        return `    1  ls
+    2  pwd
+    3  cd Documents
+    4  ls -la
+    5  cat readme.txt
+    6  grep "Linux" readme.txt
+    7  find . -name "*.txt"
+    8  ps aux
+    9  top
+   10  history`;
+    }
+
+    manCommand(command) {
+        const manPages = {
+            'ls': `LS(1)                            User Commands                           LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List information about the FILEs (the current directory by default).
+
+       -l     use a long listing format
+       -a, --all
+              do not ignore entries starting with .
+
+EXAMPLES
+       ls -l
+              List files in long format
+       ls -la
+              List all files including hidden ones`,
+
+            'cat': `CAT(1)                           User Commands                          CAT(1)
+
+NAME
+       cat - concatenate files and print on the standard output
+
+SYNOPSIS
+       cat [OPTION]... [FILE]...
+
+DESCRIPTION
+       Concatenate FILE(s) to standard output.
+
+EXAMPLES
+       cat file.txt
+              Display contents of file.txt`,
+
+            'grep': `GREP(1)                          User Commands                         GREP(1)
+
+NAME
+       grep - print lines matching a pattern
+
+SYNOPSIS
+       grep [OPTIONS] PATTERN [FILE...]
+
+DESCRIPTION
+       grep searches for PATTERN in each FILE.
+
+EXAMPLES
+       grep "hello" file.txt
+              Search for "hello" in file.txt`
+        };
+
+        return manPages[command] || `No manual entry for ${command}`;
+    }
+
+    unameCommand(args) {
+        if (args.includes('-a')) {
+            return 'Linux linux-clone 5.15.0-web #1 SMP ' + new Date().toDateString() + ' x86_64 x86_64 x86_64 GNU/Linux';
+        } else if (args.includes('-s')) {
+            return 'Linux';
+        } else if (args.includes('-r')) {
+            return '5.15.0-web';
+        } else if (args.includes('-m')) {
+            return 'x86_64';
+        }
+        return 'Linux';
+    }
+
+    dfCommand() {
+        return `Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/sda1         10485760 5242880   5242880  50% /
+tmpfs              4194304       0   4194304   0% /dev/shm
+/dev/sda2          5242880 1048576   4194304  20% /home`;
+    }
+
+    freeCommand() {
+        return `               total        used        free      shared  buff/cache   available
+Mem:         8388608     2097152     4194304           0     2097152     6291456
+Swap:              0           0           0`;
+    }
+
+    uptimeCommand() {
+        const uptime = Math.floor(performance.now() / 1000);
+        const hours = Math.floor(uptime / 3600);
+        const minutes = Math.floor((uptime % 3600) / 60);
+        return ` ${new Date().toLocaleTimeString()}  up ${hours}:${minutes.toString().padStart(2, '0')},  1 user,  load average: 0.15, 0.10, 0.05`;
+    }
+
+    whichCommand(command) {
+        const commonCommands = {
+            'ls': '/bin/ls',
+            'cat': '/bin/cat',
+            'grep': '/bin/grep',
+            'find': '/usr/bin/find',
+            'ps': '/bin/ps',
+            'top': '/usr/bin/top',
+            'bash': '/bin/bash',
+            'nano': '/usr/bin/nano',
+            'vim': '/usr/bin/vim'
+        };
+        
+        return commonCommands[command] || `${command} not found`;
+    }
+
+    // Network and system commands
+    pingCommand(destination) {
+        return `PING ${destination} (127.0.0.1) 56(84) bytes of data.
+64 bytes from ${destination} (127.0.0.1): icmp_seq=1 ttl=64 time=0.045 ms
+64 bytes from ${destination} (127.0.0.1): icmp_seq=2 ttl=64 time=0.042 ms
+64 bytes from ${destination} (127.0.0.1): icmp_seq=3 ttl=64 time=0.038 ms
+
+--- ${destination} ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss
+round-trip min/avg/max/stddev = 0.038/0.042/0.045/0.003 ms`;
+    }
+
+    wgetCommand(url) {
+        return `--${new Date().toISOString()}--  ${url}
+Resolving ${url}... 127.0.0.1
+Connecting to ${url}|127.0.0.1|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2048 (2.0K) [text/html]
+Saving to: 'index.html'
+
+index.html          100%[===================>]   2.00K  --.-KB/s    in 0s
+
+${new Date().toISOString()} (--.-KB/s) - 'index.html' saved [2048/2048]`;
+    }
+
+    curlCommand(url) {
+        return `<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Response</title>
+</head>
+<body>
+    <h1>Hello from ${url}</h1>
+    <p>This is a simulated curl response.</p>
+</body>
+</html>`;
+    }
+
+    aptCommand(args) {
+        if (args.length === 0) {
+            return `apt 2.4.8 (amd64)
+Usage: apt [options] command
+
+apt is a commandline package manager and provides commands for
+searching and managing as well as querying information about packages.
+It provides the same functionality as the specialized APT tools,
+like apt-get and apt-cache, but enables options more suitable for
+interactive use by default.
+
+Most used commands:
+  list - list packages based on package names
+  search - search in package descriptions
+  show - show package details
+  install - install packages
+  remove - remove packages
+  update - update list of available packages
+  upgrade - upgrade the system by installing/upgrading packages
+  full-upgrade - upgrade the system by removing/installing/upgrading packages`;
+        }
+
+        const action = args[0];
+        switch(action) {
+            case 'update':
+                return `Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Fetched 228 kB in 1s (228 kB/s)
+Reading package lists... Done`;
+            
+            case 'upgrade':
+                return `Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.`;
+            
+            case 'install':
+                const package = args[1] || 'package';
+                return `Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  ${package}
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,234 kB of archives.
+After this operation, 5,678 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 ${package} amd64 1.0.0 [1,234 kB]
+Fetched 1,234 kB in 1s (1,234 kB/s)
+Selecting previously unselected package ${package}.
+(Reading database ... 185432 files and directories currently installed.)
+Preparing to unpack .../${package}_1.0.0_amd64.deb ...
+Unpacking ${package} (1.0.0) ...
+Setting up ${package} (1.0.0) ...
+Processing triggers for man-db (2.9.1-1) ...`;
+            
+            case 'search':
+                const query = args[1] || 'query';
+                return `Sorting... Done
+Full Text Search... Done
+${query}/focal 1.0.0 amd64
+  Sample package matching your search
+
+${query}-dev/focal 1.0.0-dev amd64
+  Development files for ${query}
+
+lib${query}/focal 1.0.0 amd64
+  Library files for ${query}`;
+            
+            default:
+                return `E: Invalid operation ${action}`;
+        }
+    }
+
+    sudoCommand(args) {
+        const command = args.join(' ');
+        return `[sudo] password for wisnu: 
+Sorry, try again.
+[sudo] password for wisnu: 
+# Simulated sudo execution
+# Command: ${command}
+# Note: This is a simulation - no actual privileges escalated`;
+    }
+
+    htopCommand() {
+        return `    PID USER      PRI  NI  VIRT   RES   SHR S CPU% MEM%   TIME+  Command
+   1234 wisnu      20   0  21.2M  4.3M  3.0M S  2.3  0.1  0:01.23 bash
+   1235 wisnu      20   0  12.4M  2.0M  1.5M S  0.0  0.0  0:00.45 terminal
+   1236 wisnu      20   0  15.6M  3.0M  2.3M S  0.0  0.0  0:00.12 file-manager
+   1237 wisnu      20   0  11.2M  1.9M  1.4M S  0.0  0.0  0:00.08 text-editor
+   1238 wisnu      20   0   8.3M  1.0M  0.8M R  1.0  0.0  0:00.01 htop
+
+Mem[||||||||||||||||||||||||                    2.0G/8.0G]
+Swp[                                                0K/0K]
+
+Tasks: 5, 127 thr; 1 running
+Load average: 0.15 0.10 0.05 
+Uptime: 00:${Math.floor(performance.now() / 60000).toString().padStart(2, '0')}:${Math.floor((performance.now() % 60000) / 1000).toString().padStart(2, '0')}`;
+    }
+
+    editorCommand(editor, filename) {
+        if (editor === 'vim') {
+            return `Starting vim editor for ${filename}...
+# Vim simulation - file opened in text editor
+# Use :wq to save and quit, :q! to quit without saving
+# Note: This opens the file in the GUI text editor instead`;
+        } else {
+            return `GNU nano 4.8                     ${filename}
+
+# Nano simulation - file opened in text editor
+# ^X Exit  ^O Write Out  ^W Where Is  ^K Cut Text
+# Note: This opens the file in the GUI text editor instead`;
+        }
+    }
+
+    chmodCommand(mode, file) {
+        return `Changed permissions of '${file}' to ${mode}
+# Note: This is a simulation - no actual permissions changed`;
+    }
+
+    chownCommand(owner, file) {
+        return `Changed ownership of '${file}' to ${owner}
+# Note: This is a simulation - no actual ownership changed`;
+    }
+
+    idCommand() {
+        return `uid=1000(wisnu) gid=1000(wisnu) groups=1000(wisnu),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)`;
     }
 
     createTextEditorWindow(windowId) {
@@ -925,6 +1629,264 @@ Enjoy writing!"></textarea>
         `;
 
         this.createWindow(windowId, 'Settings', 'fas fa-cog', content, 600, 500);
+    }
+
+    createSystemMonitorWindow(windowId) {
+        const content = `
+            <div class="system-monitor">
+                <div class="monitor-header">
+                    <h2><i class="fas fa-chart-line"></i> System Monitor</h2>
+                    <div class="monitor-controls">
+                        <button class="monitor-btn active" data-tab="overview">Overview</button>
+                        <button class="monitor-btn" data-tab="processes">Processes</button>
+                        <button class="monitor-btn" data-tab="resources">Resources</button>
+                        <button class="monitor-btn" data-tab="filesystem">Filesystem</button>
+                    </div>
+                </div>
+                
+                <div class="monitor-content">
+                    <div class="monitor-tab active" id="overview-tab">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <i class="fas fa-microchip"></i>
+                                    <span>CPU Usage</span>
+                                </div>
+                                <div class="stat-value" id="cpu-usage">25%</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill cpu-progress" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <i class="fas fa-memory"></i>
+                                    <span>Memory Usage</span>
+                                </div>
+                                <div class="stat-value" id="memory-usage">2.1 GB / 8.0 GB</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill memory-progress" style="width: 26%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <i class="fas fa-hdd"></i>
+                                    <span>Disk Usage</span>
+                                </div>
+                                <div class="stat-value" id="disk-usage">45.2 GB / 100 GB</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill disk-progress" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Network</span>
+                                </div>
+                                <div class="stat-value" id="network-usage">↓ 1.2 MB/s ↑ 245 KB/s</div>
+                                <div class="network-status">
+                                    <span class="status-dot connected"></span>
+                                    Connected
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-info">
+                            <h3>System Information</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">OS:</span>
+                                    <span class="info-value">Linux Desktop Clone 1.0</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Kernel:</span>
+                                    <span class="info-value">5.15.0-web</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Uptime:</span>
+                                    <span class="info-value" id="uptime">${Math.floor(performance.now() / 60000)} minutes</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Architecture:</span>
+                                    <span class="info-value">x86_64</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="monitor-tab" id="processes-tab">
+                        <div class="processes-header">
+                            <h3>Running Processes</h3>
+                            <button class="refresh-btn"><i class="fas fa-sync"></i> Refresh</button>
+                        </div>
+                        <div class="processes-table">
+                            <div class="table-header">
+                                <div class="col-pid">PID</div>
+                                <div class="col-name">Process Name</div>
+                                <div class="col-cpu">CPU %</div>
+                                <div class="col-memory">Memory</div>
+                                <div class="col-status">Status</div>
+                            </div>
+                            <div class="table-body" id="processes-list">
+                                <div class="table-row">
+                                    <div class="col-pid">1234</div>
+                                    <div class="col-name">bash</div>
+                                    <div class="col-cpu">2.3%</div>
+                                    <div class="col-memory">4.3 MB</div>
+                                    <div class="col-status"><span class="status-running">Running</span></div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="col-pid">1235</div>
+                                    <div class="col-name">terminal</div>
+                                    <div class="col-cpu">0.8%</div>
+                                    <div class="col-memory">2.1 MB</div>
+                                    <div class="col-status"><span class="status-running">Running</span></div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="col-pid">1236</div>
+                                    <div class="col-name">file-manager</div>
+                                    <div class="col-cpu">0.2%</div>
+                                    <div class="col-memory">3.2 MB</div>
+                                    <div class="col-status"><span class="status-sleeping">Sleeping</span></div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="col-pid">1237</div>
+                                    <div class="col-name">text-editor</div>
+                                    <div class="col-cpu">0.1%</div>
+                                    <div class="col-memory">1.9 MB</div>
+                                    <div class="col-status"><span class="status-sleeping">Sleeping</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="monitor-tab" id="resources-tab">
+                        <div class="resource-charts">
+                            <div class="chart-container">
+                                <h3>CPU History</h3>
+                                <div class="chart cpu-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <h3>Memory History</h3>
+                                <div class="chart memory-chart">
+                                    <div class="chart-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="monitor-tab" id="filesystem-tab">
+                        <div class="filesystem-info">
+                            <h3>Filesystem Usage</h3>
+                            <div class="fs-table">
+                                <div class="fs-header">
+                                    <div class="fs-col">Filesystem</div>
+                                    <div class="fs-col">Size</div>
+                                    <div class="fs-col">Used</div>
+                                    <div class="fs-col">Available</div>
+                                    <div class="fs-col">Use%</div>
+                                    <div class="fs-col">Mounted on</div>
+                                </div>
+                                <div class="fs-body">
+                                    <div class="fs-row">
+                                        <div class="fs-col">/dev/sda1</div>
+                                        <div class="fs-col">100G</div>
+                                        <div class="fs-col">45G</div>
+                                        <div class="fs-col">50G</div>
+                                        <div class="fs-col">
+                                            <div class="usage-bar">
+                                                <div class="usage-fill" style="width: 45%"></div>
+                                                45%
+                                            </div>
+                                        </div>
+                                        <div class="fs-col">/</div>
+                                    </div>
+                                    <div class="fs-row">
+                                        <div class="fs-col">/dev/sda2</div>
+                                        <div class="fs-col">50G</div>
+                                        <div class="fs-col">10G</div>
+                                        <div class="fs-col">38G</div>
+                                        <div class="fs-col">
+                                            <div class="usage-bar">
+                                                <div class="usage-fill" style="width: 20%"></div>
+                                                20%
+                                            </div>
+                                        </div>
+                                        <div class="fs-col">/home</div>
+                                    </div>
+                                    <div class="fs-row">
+                                        <div class="fs-col">tmpfs</div>
+                                        <div class="fs-col">4.0G</div>
+                                        <div class="fs-col">0</div>
+                                        <div class="fs-col">4.0G</div>
+                                        <div class="fs-col">
+                                            <div class="usage-bar">
+                                                <div class="usage-fill" style="width: 0%"></div>
+                                                0%
+                                            </div>
+                                        </div>
+                                        <div class="fs-col">/tmp</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const window = this.createWindow(windowId, 'System Monitor', 'fas fa-chart-line', content, 800, 600);
+        this.setupSystemMonitor(window);
+    }
+
+    setupSystemMonitor(window) {
+        const tabs = window.querySelectorAll('.monitor-btn');
+        const tabContents = window.querySelectorAll('.monitor-tab');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const targetTab = window.querySelector(`#${tab.dataset.tab}-tab`);
+                if (targetTab) {
+                    targetTab.classList.add('active');
+                }
+            });
+        });
+
+        // Simulate real-time updates
+        const updateStats = () => {
+            const cpuUsage = Math.floor(Math.random() * 40 + 10); // 10-50%
+            const memoryUsed = (Math.random() * 2 + 1.5).toFixed(1); // 1.5-3.5 GB
+            const memoryPercent = Math.floor((memoryUsed / 8) * 100);
+            
+            const cpuElement = window.querySelector('#cpu-usage');
+            const memoryElement = window.querySelector('#memory-usage');
+            const cpuProgress = window.querySelector('.cpu-progress');
+            const memoryProgress = window.querySelector('.memory-progress');
+            const uptimeElement = window.querySelector('#uptime');
+            
+            if (cpuElement) cpuElement.textContent = `${cpuUsage}%`;
+            if (memoryElement) memoryElement.textContent = `${memoryUsed} GB / 8.0 GB`;
+            if (cpuProgress) cpuProgress.style.width = `${cpuUsage}%`;
+            if (memoryProgress) memoryProgress.style.width = `${memoryPercent}%`;
+            if (uptimeElement) uptimeElement.textContent = `${Math.floor(performance.now() / 60000)} minutes`;
+        };
+
+        // Update every 2 seconds
+        const interval = setInterval(updateStats, 2000);
+        
+        // Store interval ID to clear it when window is closed
+        window.dataset.updateInterval = interval;
+        
+        // Initial update
+        updateStats();
     }
 
     toggleStartMenu() {
