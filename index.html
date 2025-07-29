@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Desktop Clone - By Wisnu Hidayat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="logo-container">
+                <i class="fab fa-linux"></i>
+            </div>
+            <h1>Linux Desktop Clone</h1>
+            <p class="creator">Created by <span class="highlight">Wisnu Hidayat</span></p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Loading desktop environment...</p>
+        </div>
+    </div>
+
+    <!-- Desktop Environment -->
+    <div id="desktop" class="desktop hidden">
+        <!-- Desktop Background -->
+        <div class="desktop-background"></div>
+        
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="file-manager">
+                <i class="fas fa-folder"></i>
+                <span>Files</span>
+            </div>
+            <div class="desktop-icon" data-app="terminal">
+                <i class="fas fa-terminal"></i>
+                <span>Terminal</span>
+            </div>
+            <div class="desktop-icon" data-app="text-editor">
+                <i class="fas fa-file-alt"></i>
+                <span>Text Editor</span>
+            </div>
+            <div class="desktop-icon" data-app="calculator">
+                <i class="fas fa-calculator"></i>
+                <span>Calculator</span>
+            </div>
+            <div class="desktop-icon" data-app="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container"></div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="taskbar-left">
+                <div class="start-button">
+                    <i class="fab fa-ubuntu"></i>
+                </div>
+                <div class="taskbar-apps" id="taskbar-apps"></div>
+            </div>
+            <div class="taskbar-right">
+                <div class="system-tray">
+                    <div class="network-indicator">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="volume-indicator">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <div class="battery-indicator">
+                        <i class="fas fa-battery-three-quarters"></i>
+                    </div>
+                </div>
+                <div class="clock" id="clock">
+                    <div class="time"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div id="start-menu" class="start-menu hidden">
+            <div class="start-menu-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <div class="username">Wisnu Hidayat</div>
+                        <div class="user-status">Online</div>
+                    </div>
+                </div>
+            </div>
+            <div class="start-menu-apps">
+                <div class="app-item" data-app="file-manager">
+                    <i class="fas fa-folder"></i>
+                    <span>File Manager</span>
+                </div>
+                <div class="app-item" data-app="terminal">
+                    <i class="fas fa-terminal"></i>
+                    <span>Terminal</span>
+                </div>
+                <div class="app-item" data-app="text-editor">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Text Editor</span>
+                </div>
+                <div class="app-item" data-app="calculator">
+                    <i class="fas fa-calculator"></i>
+                    <span>Calculator</span>
+                </div>
+                <div class="app-item" data-app="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+            <div class="start-menu-footer">
+                <div class="power-options">
+                    <div class="power-option">
+                        <i class="fas fa-power-off"></i>
+                        <span>Shutdown</span>
+                    </div>
+                    <div class="power-option">
+                        <i class="fas fa-redo"></i>
+                        <span>Restart</span>
+                    </div>
+                    <div class="power-option">
+                        <i class="fas fa-moon"></i>
+                        <span>Sleep</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div id="context-menu" class="context-menu hidden">
+            <div class="context-item" data-action="refresh">
+                <i class="fas fa-sync"></i>
+                <span>Refresh</span>
+            </div>
+            <div class="context-item" data-action="new-folder">
+                <i class="fas fa-folder-plus"></i>
+                <span>New Folder</span>
+            </div>
+            <div class="context-item" data-action="new-file">
+                <i class="fas fa-file-plus"></i>
+                <span>New File</span>
+            </div>
+            <div class="context-separator"></div>
+            <div class="context-item" data-action="paste">
+                <i class="fas fa-paste"></i>
+                <span>Paste</span>
+            </div>
+            <div class="context-separator"></div>
+            <div class="context-item" data-action="properties">
+                <i class="fas fa-info-circle"></i>
+                <span>Properties</span>
+            </div>
+        </div>
+
+        <!-- Notification Area -->
+        <div id="notifications" class="notifications"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
